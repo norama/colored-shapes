@@ -10,22 +10,21 @@ import {
   ListItemButton,
 } from "@mui/material"
 import { Delete as DeleteIcon, Edit as EditIcon, AddCircle as AddIcon } from "@mui/icons-material"
-import React from "react"
-
-function generate(element: React.ReactElement) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  )
-}
+import { useState } from "react"
+import type { TColoredShape } from "@ts/shapes"
 
 const Shapes = () => {
+  const [coloredShapes, setColoredShapes] = useState<TColoredShape[]>([
+    { id: 1, color: "red", shape: "square" },
+    { id: 2, color: "green", shape: "circular" },
+  ])
+
   return (
     <Box width="16rem">
       <List>
-        {generate(
+        {coloredShapes.map(({ id, color, shape }) => (
           <ListItem
+            key={id}
             secondaryAction={
               <Box display="flex" gap="1rem" marginLeft="1rem">
                 <IconButton edge="end" aria-label="edit">
@@ -39,13 +38,14 @@ const Shapes = () => {
           >
             <ListItemButton component="a" href="#simple-list">
               <ListItemAvatar>
-                <Avatar sx={{ width: 56, height: 56, background: "red" }} variant="square">
+                <Avatar sx={{ width: 56, height: 56, background: color }} variant={shape}>
                   &nbsp;
                 </Avatar>
               </ListItemAvatar>
             </ListItemButton>
-          </ListItem>,
-        )}
+          </ListItem>
+        ))}
+
         <ListItem
           secondaryAction={
             <Box display="flex" gap="2rem" marginTop="2rem">
