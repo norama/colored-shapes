@@ -10,14 +10,11 @@ import {
   ListItemButton,
 } from "@mui/material"
 import { Delete as DeleteIcon, Edit as EditIcon, AddCircle as AddIcon } from "@mui/icons-material"
-import { useState } from "react"
-import type { TColoredShape } from "@ts/shapes"
+import { useStore } from "@nanostores/react"
+import { $coloredShapes, addColoredShape, removeColoredShape } from "@store/shapes"
 
 const Shapes = () => {
-  const [coloredShapes, setColoredShapes] = useState<TColoredShape[]>([
-    { id: 1, color: "red", shape: "square" },
-    { id: 2, color: "green", shape: "circular" },
-  ])
+  const coloredShapes = useStore($coloredShapes)
 
   return (
     <Box width="16rem">
@@ -30,13 +27,13 @@ const Shapes = () => {
                 <IconButton edge="end" aria-label="edit">
                   <EditIcon />
                 </IconButton>
-                <IconButton edge="end" aria-label="delete">
+                <IconButton onClick={() => removeColoredShape(id)} edge="end" aria-label="delete">
                   <DeleteIcon />
                 </IconButton>
               </Box>
             }
           >
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a">
               <ListItemAvatar>
                 <Avatar sx={{ width: 56, height: 56, background: color }} variant={shape}>
                   &nbsp;
@@ -49,7 +46,12 @@ const Shapes = () => {
         <ListItem
           secondaryAction={
             <Box display="flex" gap="2rem" marginTop="2rem">
-              <IconButton edge="end" aria-label="add" sx={{ left: 8 }}>
+              <IconButton
+                onClick={() => addColoredShape()}
+                edge="end"
+                aria-label="add"
+                sx={{ left: 8 }}
+              >
                 <AddIcon color="primary" sx={{ width: 36, height: 36 }} />
               </IconButton>
             </Box>
