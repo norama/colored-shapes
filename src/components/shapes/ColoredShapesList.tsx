@@ -9,7 +9,7 @@ import {
 } from "@mui/icons-material"
 import { useStore } from "@nanostores/react"
 import { $coloredShapes, addColoredShape, removeColoredShape } from "@store/shapes"
-import ColoredShapeImage from "./ColoredShapeImage"
+import ColoredShape from "./ColoredShape"
 import Link from "@components/global/Link"
 
 interface ButtonProps {
@@ -48,7 +48,7 @@ const ColoredShapesList = () => {
   return (
     <Box width="16rem">
       <List>
-        {coloredShapes.map(({ id, color, shape }) => (
+        {coloredShapes.map(({ id }) => (
           <ListItem
             key={id}
             secondaryAction={
@@ -61,7 +61,7 @@ const ColoredShapesList = () => {
           >
             <Link href={`/shapes/${id}`}>
               <ListItemButton component="a">
-                <ColoredShapeImage coloredShape={{ id, color, shape }} />
+                <ColoredShape id={id} hoveredContent={<ViewIcon />} />
               </ListItemButton>
             </Link>
           </ListItem>
