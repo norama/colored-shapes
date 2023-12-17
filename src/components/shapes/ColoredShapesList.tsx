@@ -1,18 +1,28 @@
 "use client"
 
+import { Box, IconButton, List, ListItem, ListItemButton } from "@mui/material"
 import {
-  Avatar,
-  Box,
-  IconButton,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemButton,
-} from "@mui/material"
-import { Delete as DeleteIcon, Edit as EditIcon, AddCircle as AddIcon } from "@mui/icons-material"
+  Delete as DeleteIcon,
+  Edit as EditIcon,
+  AddCircle as AddIcon,
+  Visibility as ViewIcon,
+} from "@mui/icons-material"
 import { useStore } from "@nanostores/react"
 import { $coloredShapes, addColoredShape, removeColoredShape } from "@store/shapes"
-import ColoredShape from "./ColoredShape"
+import ColoredShapeImage from "./ColoredShapeImage"
+import Link from "@components/global/Link"
+
+interface ButtonProps {
+  id: number
+}
+
+const ViewButton = ({ id }: ButtonProps) => (
+  <Link href={`/shapes/${id}`}>
+    <IconButton edge="end" aria-label="view">
+      <ViewIcon />
+    </IconButton>
+  </Link>
+)
 
 const EditButton = () => (
   <IconButton edge="end" aria-label="edit">
@@ -20,11 +30,7 @@ const EditButton = () => (
   </IconButton>
 )
 
-interface DeleteButtonProps {
-  id: number
-}
-
-const DeleteButton = ({ id }: DeleteButtonProps) => (
+const DeleteButton = ({ id }: ButtonProps) => (
   <IconButton onClick={() => removeColoredShape(id)} edge="end" aria-label="delete">
     <DeleteIcon />
   </IconButton>
@@ -46,23 +52,24 @@ const ColoredShapesList = () => {
           <ListItem
             key={id}
             secondaryAction={
-              <Box display="flex" gap="1rem" marginLeft="1rem">
+              <Box display="flex" gap="1rem" position="relative" left={40}>
+                <ViewButton id={id} />
                 <EditButton />
                 <DeleteButton id={id} />
               </Box>
             }
           >
-            <ListItemButton component="a">
-              <ListItemAvatar>
-                <ColoredShape coloredShape={{ id, color, shape }} />
-              </ListItemAvatar>
-            </ListItemButton>
+            <Link href={`/shapes/${id}`}>
+              <ListItemButton component="a">
+                <ColoredShapeImage coloredShape={{ id, color, shape }} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
 
         <ListItem
           secondaryAction={
-            <Box display="flex" gap="2rem" marginTop="2rem">
+            <Box position="relative" left={40} marginTop={6}>
               <AddButton />
             </Box>
           }

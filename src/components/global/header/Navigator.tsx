@@ -1,8 +1,8 @@
 "use client"
 
 import { Menu as MenuIcon } from "@mui/icons-material"
-import { Menu, Button, IconButton, MenuItem } from "@mui/material"
-import Link from "./Link"
+import { Menu, IconButton, MenuItem } from "@mui/material"
+import Link from "@components/global/Link"
 import { useState } from "react"
 
 const Navigator = () => {

@@ -1,19 +1,22 @@
-import { Avatar } from "@mui/material"
-import { TColoredShape } from "@ts/shapes"
+"use client"
+
+import ColoredShapeImage from "./ColoredShapeImage"
+import { useGetColoredShape } from "@store/useShapes"
 
 interface ColoredShapeProps {
-  coloredShape: TColoredShape
+  id: number
   size?: number
 }
 
-const ColoredShape = ({ coloredShape, size = 56 }: ColoredShapeProps) => {
-  const { color, shape } = coloredShape
+const ColoredShape = ({ id, size = 112 }: ColoredShapeProps) => {
+  const getColoredShape = useGetColoredShape()
+  const coloredShape = getColoredShape(id)
 
-  return (
-    <Avatar sx={{ width: size, height: size, background: color }} variant={shape}>
-      &nbsp;
-    </Avatar>
-  )
+  if (!coloredShape) {
+    throw new Error(`Colored Shape (${id}) is not found.`)
+  }
+
+  return <ColoredShapeImage coloredShape={coloredShape} size={size} />
 }
 
 export default ColoredShape
