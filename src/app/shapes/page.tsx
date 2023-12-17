@@ -1,5 +1,5 @@
-import Shapes from "@components/shapes/Shapes"
+import ColoredShapesList from "@components/shapes/ColoredShapesList"
 
-const Page = () => <Shapes />
+const Page = () => <ColoredShapesList />
 
 export default Page

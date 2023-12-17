@@ -12,8 +12,31 @@ import {
 import { Delete as DeleteIcon, Edit as EditIcon, AddCircle as AddIcon } from "@mui/icons-material"
 import { useStore } from "@nanostores/react"
 import { $coloredShapes, addColoredShape, removeColoredShape } from "@store/shapes"
+import ColoredShape from "./ColoredShape"
 
-const Shapes = () => {
+const EditButton = () => (
+  <IconButton edge="end" aria-label="edit">
+    <EditIcon />
+  </IconButton>
+)
+
+interface DeleteButtonProps {
+  id: number
+}
+
+const DeleteButton = ({ id }: DeleteButtonProps) => (
+  <IconButton onClick={() => removeColoredShape(id)} edge="end" aria-label="delete">
+    <DeleteIcon />
+  </IconButton>
+)
+
+const AddButton = () => (
+  <IconButton onClick={() => addColoredShape()} edge="end" aria-label="add" sx={{ left: 8 }}>
+    <AddIcon color="primary" sx={{ width: 36, height: 36 }} />
+  </IconButton>
+)
+
+const ColoredShapesList = () => {
   const coloredShapes = useStore($coloredShapes)
 
   return (
@@ -24,20 +47,14 @@ const Shapes = () => {
             key={id}
             secondaryAction={
               <Box display="flex" gap="1rem" marginLeft="1rem">
-                <IconButton edge="end" aria-label="edit">
-                  <EditIcon />
-                </IconButton>
-                <IconButton onClick={() => removeColoredShape(id)} edge="end" aria-label="delete">
-                  <DeleteIcon />
-                </IconButton>
+                <EditButton />
+                <DeleteButton id={id} />
               </Box>
             }
           >
             <ListItemButton component="a">
               <ListItemAvatar>
-                <Avatar sx={{ width: 56, height: 56, background: color }} variant={shape}>
-                  &nbsp;
-                </Avatar>
+                <ColoredShape coloredShape={{ id, color, shape }} />
               </ListItemAvatar>
             </ListItemButton>
           </ListItem>
@@ -46,20 +63,13 @@ const Shapes = () => {
         <ListItem
           secondaryAction={
             <Box display="flex" gap="2rem" marginTop="2rem">
-              <IconButton
-                onClick={() => addColoredShape()}
-                edge="end"
-                aria-label="add"
-                sx={{ left: 8 }}
-              >
-                <AddIcon color="primary" sx={{ width: 36, height: 36 }} />
-              </IconButton>
+              <AddButton />
             </Box>
           }
-        ></ListItem>
+        />
       </List>
     </Box>
   )
 }
 
-export default Shapes
+export default ColoredShapesList
