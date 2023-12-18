@@ -1,5 +1,5 @@
 import ColoredShapeImage from "./ColoredShapeImage"
-import { useSelectedColoredShape } from "./store/useSelection"
+import { useSelectedColoredShape } from "@components/shapes/store/useSelection"
 
 const ColoredShapeEditor = () => {
   const coloredShape = useSelectedColoredShape()

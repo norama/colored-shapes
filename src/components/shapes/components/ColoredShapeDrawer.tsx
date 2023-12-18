@@ -1,7 +1,5 @@
-"use client"
-
 import ColoredShapeEditor from "./ColoredShapeEditor"
-import { useSelectedId } from "./store/useSelection"
+import { useSelectedId } from "@components/shapes/store/useSelection"
 import { Drawer } from "@mui/material"
 
 const ColoredShapeDrawer = () => {

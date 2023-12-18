@@ -1,5 +1,3 @@
-"use client"
-
 import { ListItemButton } from "@mui/material"
 import ColoredShapeImage from "./ColoredShapeImage"
 import { useColoredShape } from "@store/useShapes"
@@ -7,11 +5,12 @@ import { useState } from "react"
 
 interface ColoredShapeProps {
   id: number
+  onClick?: () => void
   hoveredContent?: React.ReactNode
   size?: number
 }
 
-const ColoredShape = ({ id, hoveredContent = "", size = 56 }: ColoredShapeProps) => {
+const ColoredShape = ({ id, onClick, hoveredContent = "", size = 56 }: ColoredShapeProps) => {
   const coloredShape = useColoredShape(id)
   const [content, setContent] = useState<React.ReactNode>("")
 
@@ -24,6 +23,7 @@ const ColoredShape = ({ id, hoveredContent = "", size = 56 }: ColoredShapeProps)
       sx={{ width: "fit-content" }}
       onMouseEnter={() => setContent(hoveredContent)}
       onMouseLeave={() => setContent("")}
+      onClick={onClick}
     >
       <ColoredShapeImage coloredShape={coloredShape} content={content} size={size} />
     </ListItemButton>

@@ -1,5 +1,3 @@
-"use client"
-
 import { Box, IconButton, List, ListItem, ListItemButton } from "@mui/material"
 import {
   Delete as DeleteIcon,
@@ -11,7 +9,7 @@ import { addColoredShape, removeColoredShape } from "@store/shapes"
 import ColoredShape from "./ColoredShape"
 import Link from "@components/global/Link"
 import { useColoredShapes } from "@store/useShapes"
-import { setSelectedId } from "./store/selection"
+import { setSelectedId } from "@components/shapes/store/selection"
 
 interface ButtonProps {
   id: number
@@ -61,7 +59,7 @@ const ColoredShapesList = () => {
             }
           >
             <Link href={`/shapes/${id}`}>
-              <ListItemButton component="a">
+              <ListItemButton>
                 <ColoredShape id={id} hoveredContent={<ViewIcon />} />
               </ListItemButton>
             </Link>
