@@ -11,6 +11,7 @@ import { useStore } from "@nanostores/react"
 import { $coloredShapes, addColoredShape, removeColoredShape } from "@store/shapes"
 import ColoredShape from "./ColoredShape"
 import Link from "@components/global/Link"
+import { useColoredShapes } from "@store/useShapes"
 
 interface ButtonProps {
   id: number
@@ -43,7 +44,7 @@ const AddButton = () => (
 )
 
 const ColoredShapesList = () => {
-  const coloredShapes = useStore($coloredShapes)
+  const coloredShapes = useColoredShapes()
 
   return (
     <Box width="16rem">

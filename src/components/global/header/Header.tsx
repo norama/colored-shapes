@@ -5,7 +5,7 @@ import Navigator from "./Navigator"
 const Header = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar>
         <Toolbar>
           <Navigator />
           <Title />
