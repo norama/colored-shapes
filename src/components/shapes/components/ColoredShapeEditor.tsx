@@ -16,7 +16,7 @@ const ColoredShapeEditor = () => {
   const SHAPES: TShape[] = ["square", "circular"]
 
   return (
-    <Grid container spacing={3} columns={2} margin="2rem" width="14rem">
+    <Grid container spacing={3} columns={2} margin="0.5rem 1.5rem 0 0" width="14rem">
       <Grid item xs={2} key="selected">
         <Box display="flex" justifyContent="center" marginBottom="1rem">
           <ColoredShapeButton
