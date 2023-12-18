@@ -22,7 +22,7 @@ const ColoredShape = ({
 
   return (
     <ListItemButton
-      onMouseEnter={() => setCurrentContent(hoveredContent)}
+      onMouseEnter={() => setCurrentContent(hoveredContent ? hoveredContent : content)}
       onMouseLeave={() => setCurrentContent(content)}
       onClick={onClick}
     >

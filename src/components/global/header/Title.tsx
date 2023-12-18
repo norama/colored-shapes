@@ -8,6 +8,7 @@ import {
   ChevronRight as ChevronRightIcon,
 } from "@mui/icons-material"
 import { usePathname } from "next/navigation"
+import Link from "@components/global/Link"
 
 interface RouteIconProps {
   route: string
@@ -27,14 +28,26 @@ const RouteIcon = ({ route }: RouteIconProps) => {
 const Title = () => {
   const path = usePathname()
   const parts = path.split("/")
+  const route = parts[1]
+  const id = parts[2]
 
   return (
     <Box display="flex" alignItems="center" gap={2}>
-      <RouteIcon route={parts[1]} />
-      {parts[2] && (
+      {route && (
+        <>
+          <Link href="/">
+            <RouteIcon route="" />
+          </Link>
+          <ChevronRightIcon />
+        </>
+      )}
+      <Link href={`/${route}`}>
+        <RouteIcon route={route} />
+      </Link>
+      {id && (
         <>
           <ChevronRightIcon />
-          <Typography variant="h6">{parts[2]}</Typography>
+          <Typography variant="h6">{id}</Typography>
         </>
       )}
     </Box>

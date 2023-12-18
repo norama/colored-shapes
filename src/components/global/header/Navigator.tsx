@@ -10,6 +10,7 @@ import { Menu, IconButton, MenuItem } from "@mui/material"
 import styled from "@emotion/styled"
 import Link from "@components/global/Link"
 import { useState } from "react"
+import { setSelectedId } from "@components/shapes/store/selection"
 
 const StyledMenuItem = styled(MenuItem)`
   width: 5rem;
@@ -35,7 +36,10 @@ const Navigator = () => {
         id="basic-menu"
         anchorEl={anchorEl}
         open={!!anchorEl}
-        onClick={() => setAnchorEl(null)}
+        onClick={() => {
+          setAnchorEl(null)
+          setSelectedId(null)
+        }}
         onClose={() => setAnchorEl(null)}
       >
         <Link href="/">
