@@ -26,7 +26,7 @@ const ColoredShape = ({
       onMouseLeave={() => setCurrentContent(content)}
       onClick={onClick}
     >
-      <Box display="flex" justifyContent="center">
+      <Box display="flex" justifyContent="center" width="100%">
         <ColoredShapeImage coloredShape={coloredShape} content={currentContent} size={size} />
       </Box>
     </ListItemButton>
