@@ -10,6 +10,7 @@ import ColoredShape from "./ColoredShape"
 import Link from "@components/global/Link"
 import { useColoredShapes } from "@store/useShapes"
 import { setSelectedId } from "@components/shapes/store/selection"
+import { useSelectedId } from "@components/shapes/store/useSelection"
 
 interface ButtonProps {
   id: number
@@ -43,6 +44,7 @@ const AddButton = () => (
 
 const ColoredShapesList = () => {
   const coloredShapes = useColoredShapes()
+  const selectedId = useSelectedId()
 
   return (
     <Box width="16rem">
@@ -60,7 +62,12 @@ const ColoredShapesList = () => {
           >
             <Link href={`/shapes/${id}`}>
               <ListItemButton>
-                <ColoredShape id={id} hoveredContent={<ViewIcon />} />
+                <ColoredShape
+                  id={id}
+                  key={id !== selectedId ? id : null}
+                  content={id === selectedId ? <EditIcon /> : ""}
+                  hoveredContent={<ViewIcon />}
+                />
               </ListItemButton>
             </Link>
           </ListItem>

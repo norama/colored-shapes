@@ -6,11 +6,18 @@ import ColoredShapeButton from "./ColoredShapeButton"
 interface ColoredShapeProps {
   id: number
   onClick?: () => void
+  content?: React.ReactNode
   hoveredContent?: React.ReactNode
   size?: number
 }
 
-const ColoredShape = ({ id, onClick, hoveredContent = "", size = 56 }: ColoredShapeProps) => {
+const ColoredShape = ({
+  id,
+  onClick,
+  content = "",
+  hoveredContent = "",
+  size = 56,
+}: ColoredShapeProps) => {
   const coloredShape = useColoredShape(id)
 
   if (!coloredShape) {
@@ -21,6 +28,7 @@ const ColoredShape = ({ id, onClick, hoveredContent = "", size = 56 }: ColoredSh
     <ColoredShapeButton
       coloredShape={coloredShape}
       onClick={onClick}
+      content={content}
       hoveredContent={hoveredContent}
       size={size}
     />

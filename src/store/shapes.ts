@@ -1,4 +1,4 @@
-import type { TColor, TColoredShape, TShape } from "@ts/shapes"
+import type { TColor, TShape, TColoredShape, TColoredShapeTemplate } from "@ts/shapes"
 import { atom, computed } from "nanostores"
 
 export const $coloredShapes = atom<TColoredShape[]>([])
@@ -15,4 +15,14 @@ export const addColoredShape = (
 
 export const removeColoredShape = (id: number) => {
   $coloredShapes.set($coloredShapes.get().filter((x) => x.id !== id))
+}
+
+export const updateColoredShape = (id: number, template: TColoredShapeTemplate) => {
+  const updated = [...$coloredShapes.get()]
+  const index = updated.findIndex((x) => x.id === id)
+  if (index === -1) {
+    return
+  }
+  updated[index] = { id, ...template }
+  $coloredShapes.set(updated)
 }
