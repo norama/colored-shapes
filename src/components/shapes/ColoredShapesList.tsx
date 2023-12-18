@@ -7,11 +7,11 @@ import {
   AddCircle as AddIcon,
   Visibility as ViewIcon,
 } from "@mui/icons-material"
-import { useStore } from "@nanostores/react"
-import { $coloredShapes, addColoredShape, removeColoredShape } from "@store/shapes"
+import { addColoredShape, removeColoredShape } from "@store/shapes"
 import ColoredShape from "./ColoredShape"
 import Link from "@components/global/Link"
 import { useColoredShapes } from "@store/useShapes"
+import { setSelectedId } from "./store/selection"
 
 interface ButtonProps {
   id: number
@@ -25,8 +25,8 @@ const ViewButton = ({ id }: ButtonProps) => (
   </Link>
 )
 
-const EditButton = () => (
-  <IconButton edge="end" aria-label="edit">
+const EditButton = ({ id }: ButtonProps) => (
+  <IconButton onClick={() => setSelectedId(id)} edge="end" aria-label="edit">
     <EditIcon />
   </IconButton>
 )
@@ -55,7 +55,7 @@ const ColoredShapesList = () => {
             secondaryAction={
               <Box display="flex" gap="1rem" position="relative" left={40}>
                 <ViewButton id={id} />
-                <EditButton />
+                <EditButton id={id} />
                 <DeleteButton id={id} />
               </Box>
             }

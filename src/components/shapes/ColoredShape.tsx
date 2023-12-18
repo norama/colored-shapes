@@ -2,7 +2,7 @@
 
 import { ListItemButton } from "@mui/material"
 import ColoredShapeImage from "./ColoredShapeImage"
-import { useGetColoredShape } from "@store/useShapes"
+import { useColoredShape } from "@store/useShapes"
 import { useState } from "react"
 
 interface ColoredShapeProps {
@@ -12,8 +12,7 @@ interface ColoredShapeProps {
 }
 
 const ColoredShape = ({ id, hoveredContent = "", size = 56 }: ColoredShapeProps) => {
-  const getColoredShape = useGetColoredShape()
-  const coloredShape = getColoredShape(id)
+  const coloredShape = useColoredShape(id)
   const [content, setContent] = useState<React.ReactNode>("")
 
   if (!coloredShape) {
