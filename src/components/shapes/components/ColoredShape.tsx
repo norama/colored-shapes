@@ -1,7 +1,7 @@
 import { ListItemButton } from "@mui/material"
 import ColoredShapeImage from "./ColoredShapeImage"
 import { useColoredShape } from "@store/useShapes"
-import { useState } from "react"
+import ColoredShapeButton from "./ColoredShapeButton"
 
 interface ColoredShapeProps {
   id: number
@@ -12,21 +12,18 @@ interface ColoredShapeProps {
 
 const ColoredShape = ({ id, onClick, hoveredContent = "", size = 56 }: ColoredShapeProps) => {
   const coloredShape = useColoredShape(id)
-  const [content, setContent] = useState<React.ReactNode>("")
 
   if (!coloredShape) {
     throw new Error(`Colored Shape (${id}) is not found.`)
   }
 
   return (
-    <ListItemButton
-      sx={{ width: "fit-content" }}
-      onMouseEnter={() => setContent(hoveredContent)}
-      onMouseLeave={() => setContent("")}
+    <ColoredShapeButton
+      coloredShape={coloredShape}
       onClick={onClick}
-    >
-      <ColoredShapeImage coloredShape={coloredShape} content={content} size={size} />
-    </ListItemButton>
+      hoveredContent={hoveredContent}
+      size={size}
+    />
   )
 }
 

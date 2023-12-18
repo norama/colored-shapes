@@ -1,9 +1,9 @@
 import { Avatar } from "@mui/material"
-import { TColoredShape } from "@ts/shapes"
+import { TColoredShapeTemplate } from "@ts/shapes"
 import React from "react"
 
 interface ColoredShapeImageProps {
-  coloredShape: TColoredShape
+  coloredShape: TColoredShapeTemplate
   content?: React.ReactNode
   size?: number
 }
