@@ -1,4 +1,5 @@
 import { Box, Grid } from "@mui/material"
+import { Check as CheckIcon, DoneAll as DoneAllIcon } from "@mui/icons-material"
 import { useSelectedColoredShape } from "@components/shapes/store/useSelection"
 import { TColor, TShape } from "@ts/shapes"
 import ColoredShapeButton from "./ColoredShapeButton"
@@ -22,6 +23,7 @@ const ColoredShapeEditor = () => {
           <ColoredShapeButton
             coloredShape={coloredShape}
             onClick={() => setSelectedId(null)}
+            hoveredContent={<DoneAllIcon />}
             size={112}
           />
         </Box>
@@ -32,6 +34,7 @@ const ColoredShapeEditor = () => {
             <ColoredShapeButton
               coloredShape={{ color, shape }}
               onClick={() => updateColoredShape(coloredShape.id, { color, shape })}
+              hoveredContent={<CheckIcon />}
             />
           </Grid>
         )),

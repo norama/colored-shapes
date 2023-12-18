@@ -1,17 +1,43 @@
 "use client"
 
-import { Typography } from "@mui/material"
+import { Box, Typography } from "@mui/material"
+import {
+  Home as HomeIcon,
+  DashboardCustomize as ShapesIcon,
+  PieChart as ReportIcon,
+  ChevronRight as ChevronRightIcon,
+} from "@mui/icons-material"
 import { usePathname } from "next/navigation"
 
-const capitalize = (str: string) => (str.length ? str.charAt(0).toUpperCase() + str.slice(1) : "")
+interface RouteIconProps {
+  route: string
+}
+
+const RouteIcon = ({ route }: RouteIconProps) => {
+  switch (route) {
+    case "shapes":
+      return <ShapesIcon />
+    case "report":
+      return <ReportIcon />
+    default:
+      return <HomeIcon />
+  }
+}
 
 const Title = () => {
   const path = usePathname()
+  const parts = path.split("/")
 
   return (
-    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-      {capitalize(path.substring(1))}
-    </Typography>
+    <Box display="flex" alignItems="center" gap={2}>
+      <RouteIcon route={parts[1]} />
+      {parts[2] && (
+        <>
+          <ChevronRightIcon />
+          <Typography variant="h6">{parts[2]}</Typography>
+        </>
+      )}
+    </Box>
   )
 }
 

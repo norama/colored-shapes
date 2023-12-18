@@ -1,9 +1,20 @@
 "use client"
 
-import { Menu as MenuIcon } from "@mui/icons-material"
+import {
+  Menu as MenuIcon,
+  Home as HomeIcon,
+  DashboardCustomize as ShapesIcon,
+  PieChart as ReportIcon,
+} from "@mui/icons-material"
 import { Menu, IconButton, MenuItem } from "@mui/material"
+import styled from "@emotion/styled"
 import Link from "@components/global/Link"
 import { useState } from "react"
+
+const StyledMenuItem = styled(MenuItem)`
+  width: 5rem;
+  justify-content: center;
+`
 
 const Navigator = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -28,13 +39,19 @@ const Navigator = () => {
         onClose={() => setAnchorEl(null)}
       >
         <Link href="/">
-          <MenuItem>Home</MenuItem>
+          <StyledMenuItem>
+            <HomeIcon />
+          </StyledMenuItem>
         </Link>
         <Link href="/shapes">
-          <MenuItem>Shapes</MenuItem>
+          <StyledMenuItem>
+            <ShapesIcon />
+          </StyledMenuItem>
         </Link>
         <Link href="/report">
-          <MenuItem>Report</MenuItem>
+          <StyledMenuItem>
+            <ReportIcon />
+          </StyledMenuItem>
         </Link>
       </Menu>
     </>
