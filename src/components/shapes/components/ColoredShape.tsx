@@ -1,7 +1,5 @@
-import { ListItemButton } from "@mui/material"
-import ColoredShapeImage from "./ColoredShapeImage"
-import { useColoredShape } from "@store/useShapes"
-import ColoredShapeButton from "./ColoredShapeButton"
+import { useColoredShape } from "store/useShapes"
+import ColoredShapeButton from "components/global/page/ColoredShapeButton"
 
 interface ColoredShapeProps {
   id: number

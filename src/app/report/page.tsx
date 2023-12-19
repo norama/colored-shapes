@@ -1,5 +1,5 @@
-import Report from "@components/report/Report"
+import ReportScreen from "components/report/ReportScreen"
 
-const Page = () => <Report />
+const Page = () => <ReportScreen />
 
 export default Page

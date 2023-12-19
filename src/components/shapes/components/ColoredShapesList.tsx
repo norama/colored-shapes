@@ -5,12 +5,12 @@ import {
   AddCircle as AddIcon,
   Visibility as ViewIcon,
 } from "@mui/icons-material"
-import { addColoredShape, removeColoredShape } from "@store/shapes"
+import { addColoredShape, removeColoredShape } from "store/shapes"
 import ColoredShape from "./ColoredShape"
-import Link from "@components/global/Link"
-import { useColoredShapes } from "@store/useShapes"
-import { setSelectedId } from "@components/shapes/store/selection"
-import { useSelectedId } from "@components/shapes/store/useSelection"
+import Link from "components/global/Link"
+import { useColoredShapes } from "store/useShapes"
+import { setSelectedId } from "components/shapes/store/selection"
+import { useSelectedId } from "components/shapes/store/useSelection"
 
 interface ButtonProps {
   id: number

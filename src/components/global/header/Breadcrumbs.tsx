@@ -1,29 +1,10 @@
 "use client"
 
 import { Box, Typography } from "@mui/material"
-import {
-  Home as HomeIcon,
-  DashboardCustomize as ShapesIcon,
-  PieChart as ReportIcon,
-  ChevronRight as ChevronRightIcon,
-} from "@mui/icons-material"
+import { ChevronRight as ChevronRightIcon } from "@mui/icons-material"
 import { usePathname } from "next/navigation"
-import Link from "@components/global/Link"
-
-interface RouteIconProps {
-  route: string
-}
-
-const RouteIcon = ({ route }: RouteIconProps) => {
-  switch (route) {
-    case "shapes":
-      return <ShapesIcon />
-    case "report":
-      return <ReportIcon />
-    default:
-      return <HomeIcon />
-  }
-}
+import Link from "components/global/Link"
+import RouteIcon from "components/global/RouteIcon"
 
 const Breadcrumbs = () => {
   const path = usePathname()

@@ -4,7 +4,7 @@ import { Edit as EditIcon } from "@mui/icons-material"
 import ColoredShape from "./components/ColoredShape"
 import { setSelectedId } from "./store/selection"
 import ColoredShapeDrawer from "./components/ColoredShapeDrawer"
-import { useSelectedId } from "@components/shapes/store/useSelection"
+import { useSelectedId } from "components/shapes/store/useSelection"
 import { Box } from "@mui/material"
 
 interface ColoredShapeScreenProps {

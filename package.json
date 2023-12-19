@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.15.0",
     "@mui/material": "^5.15.0",
     "@mui/material-nextjs": "^5.15.0",
+    "@mui/x-charts": "^6.18.3",
     "@nanostores/react": "^0.7.1",
     "nanostores": "^0.9.5",
     "next": "14.0.4",

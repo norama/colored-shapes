@@ -4,11 +4,12 @@ import {
   DoneAll as DoneAllIcon,
   Verified as VerifiedIcon,
 } from "@mui/icons-material"
-import { useSelectedColoredShape } from "@components/shapes/store/useSelection"
-import { TColor, TShape, TColoredShapeTemplate } from "@ts/shapes"
-import ColoredShapeButton from "./ColoredShapeButton"
-import { updateColoredShape } from "@store/shapes"
-import { setSelectedId } from "@components/shapes/store/selection"
+import { useSelectedColoredShape } from "components/shapes/store/useSelection"
+import type { TColoredShapeTemplate } from "types/index"
+import ColoredShapeButton from "components/global/page/ColoredShapeButton"
+import { updateColoredShape } from "store/shapes"
+import { setSelectedId } from "components/shapes/store/selection"
+import { COLORS, SHAPES } from "constants/index"
 
 const getTemplateKey = ({ color, shape }: TColoredShapeTemplate) => `${color}-${shape}`
 
@@ -18,9 +19,6 @@ const ColoredShapeEditor = () => {
   if (!coloredShape) {
     return null
   }
-
-  const COLORS: TColor[] = ["red", "green", "blue", "gold"]
-  const SHAPES: TShape[] = ["square", "circular"]
 
   const selectedKey = getTemplateKey(coloredShape)
 

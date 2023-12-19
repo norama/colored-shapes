@@ -1,7 +1,7 @@
-import { setSelectedId } from "@components/shapes/store/selection"
-import ColoredShapeEditor from "./ColoredShapeEditor"
-import { useSelectedId } from "@components/shapes/store/useSelection"
 import { Drawer } from "@mui/material"
+import { setSelectedId } from "components/shapes/store/selection"
+import ColoredShapeEditor from "./ColoredShapeEditor"
+import { useSelectedId } from "components/shapes/store/useSelection"
 
 const ColoredShapeDrawer = () => {
   const id = useSelectedId()

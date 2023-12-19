@@ -1,6 +1,6 @@
 import { useStore } from "@nanostores/react"
 import { $coloredShapes } from "./shapes"
-import { TColoredShape } from "@ts/shapes"
+import { TColoredShape } from "types/index"
 
 export const useColoredShapes = () => useStore($coloredShapes)
 

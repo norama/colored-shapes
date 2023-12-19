@@ -1,10 +1,10 @@
 import { Box, Button } from "@mui/material"
-import ColoredShapeImage from "./ColoredShapeImage"
 import { useState } from "react"
-import { TColoredShapeTemplate } from "@ts/shapes"
+import type { TColoredShapeButtonTemplate } from "types/index"
+import ColoredShapeImage from "./ColoredShapeImage"
 
 interface ColoredShapeProps {
-  coloredShape: TColoredShapeTemplate
+  coloredShape: TColoredShapeButtonTemplate
   onClick?: () => void
   content?: React.ReactNode
   hoveredContent?: React.ReactNode

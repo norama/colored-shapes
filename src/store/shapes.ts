@@ -1,4 +1,4 @@
-import type { TColor, TShape, TColoredShape, TColoredShapeTemplate } from "@ts/shapes"
+import type { TColor, TShape, TColoredShape, TColoredShapeTemplate } from "types/index"
 import { atom, computed } from "nanostores"
 
 export const $coloredShapes = atom<TColoredShape[]>([])
