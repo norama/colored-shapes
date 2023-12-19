@@ -9,13 +9,15 @@ const StyledLink = styled(NextLink)`
   color: inherit;
 `
 
-interface Props extends PropsWithChildren {
+interface LinkProps extends PropsWithChildren {
   href: string
   replace?: boolean
   scroll?: boolean
   prefetch?: boolean
+  target?: string
+  rel?: string
 }
 
-const Link = ({ children, ...props }: Props) => <StyledLink {...props}>{children}</StyledLink>
+const Link = ({ children, ...props }: LinkProps) => <StyledLink {...props}>{children}</StyledLink>
 
 export default Link

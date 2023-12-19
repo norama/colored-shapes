@@ -25,7 +25,7 @@ const RouteIcon = ({ route }: RouteIconProps) => {
   }
 }
 
-const Title = () => {
+const Breadcrumbs = () => {
   const path = usePathname()
   const parts = path.split("/")
   const route = parts[1]
@@ -54,4 +54,4 @@ const Title = () => {
   )
 }
 
-export default Title
+export default Breadcrumbs

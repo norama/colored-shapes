@@ -17,7 +17,7 @@ const StyledMenuItem = styled(MenuItem)`
   justify-content: center;
 `
 
-const Navigator = () => {
+const NavigatorMenu = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 
   return (
@@ -28,7 +28,7 @@ const Navigator = () => {
         edge="start"
         color="inherit"
         aria-label="menu"
-        sx={{ mr: 2 }}
+        sx={{ mr: 2, mb: 0.5 }}
       >
         <MenuIcon />
       </IconButton>
@@ -62,4 +62,4 @@ const Navigator = () => {
   )
 }
 
-export default Navigator
+export default NavigatorMenu
