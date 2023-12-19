@@ -1,14 +1,23 @@
-import { Box, Grid } from "@mui/material"
+import { Box } from "@mui/material"
 import CountsBarChart from "./CountsBarChart"
+import ColorInShapePieChart from "./ColorInShapePieChart"
+import ShapeInColorPieChart from "./ShapeInColorPieChart"
 
 const ChartsBoard = () => (
-  <Grid container spacing={3} columns={2}>
-    <Grid item xs={2} key="bar">
-      <Box display="flex" justifyContent="center">
-        <CountsBarChart />
-      </Box>
-    </Grid>
-  </Grid>
+  <Box
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    flexDirection="column"
+    gap={3}
+    width="100%"
+  >
+    <CountsBarChart />
+    <Box display="flex" flexWrap="wrap" marginLeft="4rem">
+      <ColorInShapePieChart />
+      <ShapeInColorPieChart />
+    </Box>
+  </Box>
 )
 
 export default ChartsBoard

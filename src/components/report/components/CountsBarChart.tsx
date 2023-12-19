@@ -1,15 +1,11 @@
 import { BarChart } from "@mui/x-charts/BarChart"
-import { useIsEmpty, useReport } from "components/report/store/useReport"
-import { COLORS } from "constants/index"
-
-const SQUARE = "\u25A2"
-const CIRCULAR = "\u2D54"
+import { useReport } from "components/report/store/useReport"
+import { CIRCULAR_SYMBOL, COLORS, SQUARE_SYMBOL } from "constants/index"
 
 const CountsBarChart = () => {
   const report = useReport()
-  const isEmpty = useIsEmpty()
 
-  if (isEmpty) {
+  if (!report.ALL) {
     return null
   }
 
@@ -19,7 +15,7 @@ const CountsBarChart = () => {
         {
           axisId: "shape",
           scaleType: "band",
-          data: [SQUARE, CIRCULAR],
+          data: [SQUARE_SYMBOL, CIRCULAR_SYMBOL],
           tickLabelStyle: { fontSize: "2rem", opacity: 0.8 },
         },
       ]}
@@ -33,7 +29,7 @@ const CountsBarChart = () => {
         data: [report.square[color], report.circular[color]],
       }))}
       colors={COLORS}
-      width={600}
+      width={400}
       height={300}
     />
   )

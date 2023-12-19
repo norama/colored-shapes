@@ -3,7 +3,7 @@ export type TColor = "red" | "green" | "blue" | "gold"
 
 export type TColoredShapeButtonTemplate = {
   shape: TShape
-  color?: TColor
+  color?: string
 }
 
 export type TColoredShapeTemplate = {
