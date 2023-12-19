@@ -1,4 +1,4 @@
-import { Box, ListItemButton } from "@mui/material"
+import { Box, Button } from "@mui/material"
 import ColoredShapeImage from "./ColoredShapeImage"
 import { useState } from "react"
 import { TColoredShapeTemplate } from "@ts/shapes"
@@ -9,6 +9,7 @@ interface ColoredShapeProps {
   content?: React.ReactNode
   hoveredContent?: React.ReactNode
   size?: number
+  disabled?: boolean
 }
 
 const ColoredShape = ({
@@ -17,19 +18,27 @@ const ColoredShape = ({
   content = "",
   hoveredContent = "",
   size = 56,
+  disabled = false,
 }: ColoredShapeProps) => {
   const [currentContent, setCurrentContent] = useState<React.ReactNode>(content)
 
+  const handleEnter = () => setCurrentContent(hoveredContent ? hoveredContent : content)
+  const handleLeave = () => setCurrentContent(content)
+
   return (
-    <ListItemButton
-      onMouseEnter={() => setCurrentContent(hoveredContent ? hoveredContent : content)}
-      onMouseLeave={() => setCurrentContent(content)}
+    <Button
+      onMouseEnter={handleEnter}
+      onTouchStart={handleEnter}
+      onMouseLeave={handleLeave}
+      onTouchEnd={handleLeave}
       onClick={onClick}
+      disabled={disabled}
+      sx={{ padding: "1rem", backgroundColor: disabled ? "transparent" : "whitesmoke" }}
     >
       <Box display="flex" justifyContent="center" width="100%">
         <ColoredShapeImage coloredShape={coloredShape} content={currentContent} size={size} />
       </Box>
-    </ListItemButton>
+    </Button>
   )
 }
 
