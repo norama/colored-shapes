@@ -1,4 +1,4 @@
-import ColoredShapesScreen from "@components/shapes/ColoredShapesScreen"
+import ColoredShapesScreen from "components/shapes/ColoredShapesScreen"
 
 const Page = () => <ColoredShapesScreen />
 

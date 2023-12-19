@@ -1,4 +1,4 @@
-import HomeScreen from "@components/shapes/HomeScreen"
+import HomeScreen from "components/shapes/HomeScreen"
 
 const Page = () => <HomeScreen />
 

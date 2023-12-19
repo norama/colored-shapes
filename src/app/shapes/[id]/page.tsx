@@ -1,4 +1,4 @@
-import ColoredShapeScreen from "@components/shapes/ColoredShapeScreen"
+import ColoredShapeScreen from "components/shapes/ColoredShapeScreen"
 
 interface Props {
   id: string

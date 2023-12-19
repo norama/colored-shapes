@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import {
   Menu as MenuIcon,
   Home as HomeIcon,
@@ -8,9 +9,8 @@ import {
 } from "@mui/icons-material"
 import { Menu, IconButton, MenuItem } from "@mui/material"
 import styled from "@emotion/styled"
-import Link from "@components/global/Link"
-import { useState } from "react"
-import { setSelectedId } from "@components/shapes/store/selection"
+import Link from "components/global/Link"
+import { setSelectedId } from "components/shapes/store/selection"
 
 const StyledMenuItem = styled(MenuItem)`
   width: 5rem;

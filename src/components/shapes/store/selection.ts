@@ -1,4 +1,4 @@
-import { $coloredShapes } from "@store/shapes"
+import { $coloredShapes } from "store/shapes"
 import { atom, computed } from "nanostores"
 
 export const $selectedId = atom<number | null>(null)

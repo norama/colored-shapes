@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
-import Header from "@components/global/header/Header"
-import Content from "@components/global/Content"
+import Header from "components/global/header/Header"
+import Content from "components/global/Content"
 
 export const metadata: Metadata = {
   title: "Colored Shapes",
