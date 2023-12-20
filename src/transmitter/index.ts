@@ -10,9 +10,9 @@ interface Events {
 export const emitter = createNanoEvents<Events>()
 
 export const startTransmitter = () => {
-  import(`store/transmitters/${process.env.NEXT_PUBLIC_STORE}Transmitter`).then((module) =>
-    module.startTransmitter(),
-  )
+  const store = process.env.NEXT_PUBLIC_STORE ?? "default"
+
+  import(`store/transmitters/${store}Transmitter`).then((module) => module.startTransmitter())
 }
 
 export const stopTransmitter = () => {
