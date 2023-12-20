@@ -27,19 +27,16 @@ export const startTransmitter = () => {
   load()
 
   emitter.on("add", () => {
-    console.log("ADD")
     addColoredShape()
     save()
   })
 
   emitter.on("remove", (id) => {
-    console.log("REMOVE")
     removeColoredShape(id)
     save()
   })
 
   emitter.on("update", (id, coloredShape) => {
-    console.log("UPDATE")
     updateColoredShape(id, coloredShape)
     save()
   })
