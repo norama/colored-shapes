@@ -1,6 +1,5 @@
 import type { TColor, TShape, TColoredShape, TColoredShapeTemplate } from "types/index"
 import { atom, computed } from "nanostores"
-import { emitter, stopTransmitter } from "transmitter"
 
 export const $coloredShapes = atom<TColoredShape[]>([])
 
@@ -26,23 +25,4 @@ export const updateColoredShape = (id: number, template: TColoredShapeTemplate) 
   }
   updated[index] = { id, ...template }
   $coloredShapes.set(updated)
-}
-
-export const startTransmitter = () => {
-  stopTransmitter()
-
-  emitter.on("add", () => {
-    console.log("ADD")
-    addColoredShape()
-  })
-
-  emitter.on("remove", (id) => {
-    console.log("REMOVE")
-    removeColoredShape(id)
-  })
-
-  emitter.on("update", (id, coloredShape) => {
-    console.log("UPDATE")
-    updateColoredShape(id, coloredShape)
-  })
 }

@@ -12,7 +12,9 @@ export const emitter = createNanoEvents<Events>()
 export const startTransmitter = () => {
   console.log("START TRANSMITTER")
 
-  import(`store/${process.env.NEXT_PUBLIC_STORE}`).then((module) => module.startTransmitter())
+  import(`store/transmitters/${process.env.NEXT_PUBLIC_STORE}Transmitter`).then((module) =>
+    module.startTransmitter(),
+  )
 }
 
 export const stopTransmitter = () => {
