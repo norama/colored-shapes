@@ -17,6 +17,7 @@
     "@mui/material-nextjs": "^5.15.0",
     "@mui/x-charts": "^6.18.3",
     "@nanostores/react": "^0.7.1",
+    "nanoevents": "^9.0.0",
     "nanostores": "^0.9.5",
     "next": "14.0.4",
     "react": "^18",

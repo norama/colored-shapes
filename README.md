@@ -8,11 +8,25 @@ Demonstrated technologies:
 - [Material UI library](https://mui.com/material-ui/)
 - [Nano Stores state manager](https://github.com/nanostores/nanostores)
 
+## Separating business and UI layers
+
+The business (storage) layer is separated from the UI layer by event based communication,
+orchestrated by a transmitter object, which dynamically imports the store accessor based
+on environment configuration.
+
+Demonstrated technologies:
+
+- [Nano Events](https://github.com/ai/nanoevents)
+- dynamic async javascript import depending on environment variable
+  - `NEXT_PUBLIC_STORE`: `localStorage` | `default`
+
 ## Demo
 
 The application is deployed on [Vercel](https://vercel.com/):
 
-- [Colored Shapes Demo](https://colored-shapes.vercel.app/)
+- [Colored Shapes Demo - production](https://colored-shapes.vercel.app/)
+- [Colored Shapes Demo - default transmitter](https://colored-shapes-hxvpqkyix-noramamatema.vercel.app/)
+- [Colored Shapes Demo - localStorage transmitter](https://colored-shapes-git-events-noramamatema.vercel.app/)
 
 ## Local development
 

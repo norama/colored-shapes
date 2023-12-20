@@ -5,7 +5,7 @@ import {
   AddCircle as AddIcon,
   Visibility as ViewIcon,
 } from "@mui/icons-material"
-import { addColoredShape, removeColoredShape } from "store/shapes"
+import { emitAdd, emitRemove } from "transmitter"
 import ColoredShape from "./ColoredShape"
 import Link from "components/global/Link"
 import { useColoredShapes } from "store/useShapes"
@@ -31,13 +31,13 @@ const EditButton = ({ id }: ButtonProps) => (
 )
 
 const DeleteButton = ({ id }: ButtonProps) => (
-  <IconButton onClick={() => removeColoredShape(id)} edge="end" aria-label="delete">
+  <IconButton onClick={() => emitRemove(id)} edge="end" aria-label="delete">
     <DeleteIcon />
   </IconButton>
 )
 
 const AddButton = () => (
-  <IconButton onClick={() => addColoredShape()} edge="end" aria-label="add" sx={{ left: 8 }}>
+  <IconButton onClick={() => emitAdd()} edge="end" aria-label="add" sx={{ left: 8 }}>
     <AddIcon color="primary" sx={{ width: 36, height: 36 }} />
   </IconButton>
 )

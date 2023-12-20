@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter"
 import Header from "components/global/header/Header"
 import Content from "components/global/Content"
+import Initializer from "components/global/Initializer"
 
 export const metadata: Metadata = {
   title: "Colored Shapes",
@@ -14,7 +15,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <AppRouterCacheProvider>
           <Header />
-          <Content>{children}</Content>
+          <Initializer>
+            <Content>{children}</Content>
+          </Initializer>
         </AppRouterCacheProvider>
       </body>
     </html>
