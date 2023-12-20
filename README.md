@@ -25,6 +25,7 @@ Demonstrated technologies:
 The application is deployed on [Vercel](https://vercel.com/):
 
 - [Colored Shapes Demo - production](https://colored-shapes.vercel.app/)
+- [Colored Shapes Demo - default transmitter](https://colored-shapes-hxvpqkyix-noramamatema.vercel.app/)
 - [Colored Shapes Demo - localStorage transmitter](https://colored-shapes-git-events-noramamatema.vercel.app/)
 
 ## Local development
