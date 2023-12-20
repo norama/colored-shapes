@@ -43,6 +43,6 @@ export const emitRemove = (id: number) => {
   emitter.emit("remove", id)
 }
 
-export const emitUpdate = (id: number, coloredShape: TColoredShape) => {
+export const emitUpdate = (id: number, coloredShape: TColoredShapeTemplate) => {
   emitter.emit("update", id, coloredShape)
 }
