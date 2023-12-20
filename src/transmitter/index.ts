@@ -1,6 +1,5 @@
 import { createNanoEvents } from "nanoevents"
-import { addColoredShape, removeColoredShape, updateColoredShape } from "store/shapes"
-import { TColoredShape, TColoredShapeTemplate } from "types"
+import { TColoredShapeTemplate } from "types"
 
 interface Events {
   add: () => void
@@ -8,25 +7,12 @@ interface Events {
   update: (id: number, coloredShape: TColoredShapeTemplate) => void
 }
 
-const emitter = createNanoEvents<Events>()
+export const emitter = createNanoEvents<Events>()
 
 export const startTransmitter = () => {
   console.log("START TRANSMITTER")
 
-  emitter.on("add", () => {
-    console.log("ADD")
-    addColoredShape()
-  })
-
-  emitter.on("remove", (id) => {
-    console.log("REMOVE")
-    removeColoredShape(id)
-  })
-
-  emitter.on("update", (id, coloredShape) => {
-    console.log("UPDATE")
-    updateColoredShape(id, coloredShape)
-  })
+  import(`store/${process.env.NEXT_PUBLIC_STORE}`).then((module) => module.startTransmitter())
 }
 
 export const stopTransmitter = () => {
