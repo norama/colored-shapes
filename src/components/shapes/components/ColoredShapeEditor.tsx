@@ -7,9 +7,9 @@ import {
 import { useSelectedColoredShape } from "components/shapes/store/useSelection"
 import type { TColoredShapeTemplate } from "types/index"
 import ColoredShapeButton from "components/global/page/ColoredShapeButton"
-import { updateColoredShape } from "store/shapes"
 import { setSelectedId } from "components/shapes/store/selection"
 import { COLORS, SHAPES } from "constants/index"
+import { emitUpdate } from "transmitter"
 
 const getTemplateKey = ({ color, shape }: TColoredShapeTemplate) => `${color}-${shape}`
 
@@ -43,7 +43,7 @@ const ColoredShapeEditor = () => {
               <ColoredShapeButton
                 key={isSelected ? null : templateKey}
                 coloredShape={{ color, shape }}
-                onClick={() => updateColoredShape(coloredShape.id, { color, shape })}
+                onClick={() => emitUpdate(coloredShape.id, { color, shape })}
                 content={isSelected ? <VerifiedIcon /> : ""}
                 hoveredContent={isSelected ? <VerifiedIcon /> : <CheckIcon />}
                 disabled={isSelected}
