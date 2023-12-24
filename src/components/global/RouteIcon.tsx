@@ -6,17 +6,17 @@ import {
 
 interface RouteIconProps {
   route: string
-  fontSize?: "small" | "medium" | "large" | "inherit"
+  fontSize?: "small" | "medium" | "large" | "inherit" | string
 }
 
 const RouteIcon = ({ route, fontSize }: RouteIconProps) => {
   switch (route) {
     case "shapes":
-      return <ShapesIcon fontSize={fontSize} />
+      return <ShapesIcon sx={{ fontSize }} />
     case "report":
-      return <ReportIcon fontSize={fontSize} />
+      return <ReportIcon sx={{ fontSize }} />
     default:
-      return <HomeIcon fontSize={fontSize} />
+      return <HomeIcon sx={{ fontSize }} />
   }
 }
 

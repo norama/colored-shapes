@@ -9,11 +9,11 @@ interface PageLinkButtonProps {
 
 const PageLinkButton = ({ route }: PageLinkButtonProps) => (
   <Link href={`/${route}`}>
-    <Box width={128}>
+    <Box width={86}>
       <ColoredShapeButton
         coloredShape={{ shape: "circular" }}
-        content={<RouteIcon route={route} fontSize="large" />}
-        size={112}
+        content={<RouteIcon route={route} fontSize="2.5rem" />}
+        size={86}
       />
     </Box>
   </Link>
